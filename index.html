@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="input_fields_group">
+        <!-- State -->
+
+        <div class="input_container flex-2">
+            <select id="state"
+                class="input_field w-100"
+                v-model="user.state">
+                <option value="" selected
+                    disabled>Anambra</option>
+
+            </select>
+            <label for="lga"
+                class="input_label">State <span
+                    class="required_asterics">*</span></label>
+        </div>
+
+        <!-- LGA -->
+        <div class="input_container flex-2">
+            <select id="lga"
+                onchange="loadWards()"
+                class="input_field w-100"
+                v-model="user.lga">
+                <option value="" selected
+                    disabled>Select LGA</option>
+                <!-- LGAs will be loaded dynamically based on the selected state -->
+            </select>
+            <label for="lga"
+                class="input_label">LGA <span
+                    class="required_asterics">*</span></label>
+        </div>
+
+        <!-- Ward -->
+        <div class="input_container flex-2">
+            <select id="ward"
+                class="input_field w-100"
+                onchange="loadPollingUnits()">
+                <option value="" selected
+                    disabled>Select LGA first</option>
+                <!-- Wards will be loaded dynamically based on the selected LGA -->
+            </select>
+            <label for="ward"
+                class="input_label">Ward <span
+                    class="required_asterics">*</span></label>
+        </div>
+
+        <!-- Polling Units -->
+        <div class="input_container flex-2">
+            <select id="polling-unit"
+                class="input_field w-100"
+                v-model="user.pollingUnit">
+                <option value="" selected
+                    disabled>Select Ward first</option>
+            </select>
+            <label for="polingUnit"
+                class="input_label">Polling Unit <span
+                    class="required_asterics">*</span></label>
+        </div>
+    </section>
+
+    <script src="states.js"></script>
+    
+</body>
+</html>
